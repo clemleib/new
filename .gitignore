@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+payments-support-lab/data/payments.db
+*.zip
