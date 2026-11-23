@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payments Health Check</title>
+<style>
+:root { --bg:#f6f7f9; --card:#fff; --text:#1b1f24; --muted:#5b6472; --line:#e3e6ea;
+        --red:#c62828; --amber:#b26a00; --green:#2e7d32; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111418; --card:#1a1f25; --text:#e8eaed; --muted:#9aa3ad;
+        --line:#2a3038; --red:#ef6b6b; --amber:#f0b35a; --green:#6cc070; } }
+body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
+main { max-width:760px; margin:0 auto; padding:24px 16px; }
+h1 { font-size:22px; margin:0 0 4px; } h2 { font-size:14px; text-transform:uppercase; letter-spacing:.06em;
+        color:var(--muted); margin:28px 0 8px; }
+.sub { color:var(--muted); font-size:13px; }
+.overall { display:inline-block; margin-top:12px; padding:6px 14px; border-radius:6px; font-weight:700;
+        color:#fff; background:var(--red); }
+.row { display:flex; gap:12px; align-items:flex-start; background:var(--card); border:1px solid var(--line);
+        border-radius:8px; padding:12px; margin-bottom:8px; }
+.pill { flex:none; width:58px; text-align:center; font-size:12px; font-weight:700; border-radius:4px; padding:2px 0;
+        border:1.5px solid currentColor; }
+.red { color:var(--red); } .amber { color:var(--amber); } .green { color:var(--green); }
+.name { font-weight:600; } .detail { color:var(--muted); font-size:14px; }
+</style></head><body><main>
+<h1>Payments platform health check</h1>
+<div class="sub">Generated 2026-11-23 03:39 by toolkit/healthcheck.py</div>
+<div class="overall">OVERALL: RED</div>
+<h2>Services</h2><div class="row"><span class="pill green">GREEN</span><div><div class="name">payment-intake</div><div class="detail">605 payments, 0 errors (0.0%), 5 warnings, p95 39 ms</div></div></div><div class="row"><span class="pill green">GREEN</span><div><div class="name">payment-validation</div><div class="detail">605 payments, 0 errors (0.0%), 18 warnings, p95 77 ms</div></div></div><div class="row"><span class="pill red">RED</span><div><div class="name">ledger-posting</div><div class="detail">587 payments, 25 errors (4.3%), 86 warnings, p95 114 ms</div></div></div><h2>Batch and data</h2><div class="row"><span class="pill amber">AMBER</span><div><div class="name">Settlement ETL</div><div class="detail">BATCH20261123 COMPLETED_WITH_ERRORS: 583/587 rows loaded, 4 rejected</div></div></div><div class="row"><span class="pill red">RED</span><div><div class="name">Stuck payments</div><div class="detail">25 validated but not posted, value 120,658.13</div></div></div><div class="row"><span class="pill red">RED</span><div><div class="name">Duplicate postings</div><div class="detail">5 duplicate postings, value 31,028.37</div></div></div><div class="row"><span class="pill red">RED</span><div><div class="name">Reconciliation</div><div class="detail">32 breaks: 25 missing in ledger, 4 missing in settlement, 3 amount mismatches</div></div></div>
+</main></body></html>
